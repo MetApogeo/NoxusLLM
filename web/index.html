@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="Nexus Roleplay – Motor de roleplay inmersivo con personajes impulsados por IA.">
+  <title>Nexus Roleplay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Cinzel:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="app-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="brand-rune">✦</span>
+        <h1 class="brand-title">Nexus Roleplay</h1>
+      </div>
+      <div class="header-meta" id="session-label">
+        <span class="session-dot"></span>
+        <span id="session-name">Campaña en el Bosque Prohibido</span>
+      </div>
+      <button class="btn-icon" id="settings-btn" title="Ajustes" aria-label="Abrir ajustes">⚙</button>
+    </div>
+  </header>
+
+  <!-- ===== CHARACTER CARD ===== -->
+  <div id="character-banner">
+    <div class="char-avatar" id="char-avatar-icon">🧙</div>
+    <div class="char-info">
+      <span class="char-name" id="char-display-name">Eldrin el Mago</span>
+      <span class="char-trait" id="char-display-trait">Misterioso · Calmado · Analítico</span>
+    </div>
+    <div class="char-status" id="char-status">
+      <span class="status-dot pulse"></span> En línea
+    </div>
+  </div>
+
+  <!-- ===== CHAT BOX ===== -->
+  <main id="chat-box" role="log" aria-live="polite" aria-label="Historial de conversación">
+    <!-- Los mensajes se insertan aquí dinámicamente -->
+    <div class="chat-intro" id="chat-intro">
+      <div class="intro-rune">⬡</div>
+      <p>La sesión ha comenzado.<br>Escribe tu primera acción o pregunta.</p>
+    </div>
+  </main>
+
+  <!-- ===== INPUT AREA ===== -->
+  <footer id="app-footer">
+    <div class="input-wrapper">
+      <textarea
+        id="input-msg"
+        rows="1"
+        placeholder="Escribe tu acción o mensaje…"
+        aria-label="Mensaje para el personaje"
+        maxlength="1000"
+      ></textarea>
+      <button id="send-btn" aria-label="Enviar mensaje">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+          <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+        </svg>
+      </button>
+    </div>
+    <div class="char-counter"><span id="char-count">0</span>/1000</div>
+  </footer>
+
+  <!-- ===== SETTINGS MODAL ===== -->
+  <div id="settings-overlay" class="modal-overlay hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2 id="modal-title">⚙ Ajustes de sesión</h2>
+        <button class="btn-icon" id="close-settings-btn" aria-label="Cerrar ajustes">✕</button>
+      </div>
+      <div class="modal-body">
+        <label class="field-label" for="cfg-session">ID de Sesión</label>
+        <input class="field-input" id="cfg-session" type="text" value="session_demo_1">
+
+        <label class="field-label" for="cfg-character">ID de Personaje</label>
+        <input class="field-input" id="cfg-character" type="text" value="char_eldrin">
+
+        <label class="field-label" for="cfg-username">Tu nombre en la partida</label>
+        <input class="field-input" id="cfg-username" type="text" value="Jugador">
+
+        <label class="field-label" for="cfg-api">URL del servidor</label>
+        <input class="field-input" id="cfg-api" type="text" value="">
+
+        <div class="modal-note">
+          Deja la URL vacía para usar la misma IP que sirve esta página (puerto 8000).
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="clear-chat-btn">🗑 Limpiar chat</button>
+        <button class="btn-primary" id="save-settings-btn">Guardar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
